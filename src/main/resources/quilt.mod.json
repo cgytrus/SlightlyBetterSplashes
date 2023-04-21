@@ -1,0 +1,34 @@
+{
+    "schema_version": 1,
+    "quilt_loader": {
+        "group": "mod.cgytrus",
+        "id": "slightlybettersplashes",
+        "version": "${version}",
+        "metadata": {
+            "name": "Slightly Better Splashes",
+            "description": "Slightly improves the splash text in the main menu",
+            "contributors": {
+                "ConfiG": "Owner"
+            },
+            "contact": {
+                "issues": "https://github.com/cgytrus/SlightlyBetterSplashes/issues",
+                "sources": "https://github.com/cgytrus/SlightlyBetterSplashes"
+            }
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "entrypoints": {
+            "init": "mod.cgytrus.slightlybettersplashes.SlightlyBetterSplashes"
+        },
+        "depends": [
+            {
+                "id": "quilt_loader",
+                "versions": ">=0.18.3-"
+            },
+            {
+                "id": "minecraft",
+                "versions": ">=1.19.4"
+            }
+        ]
+    },
+    "mixin": "slightlybettersplashes.mixins.json"
+}
