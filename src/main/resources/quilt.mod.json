@@ -16,9 +16,7 @@
             }
         },
         "intermediate_mappings": "net.fabricmc:intermediary",
-        "entrypoints": {
-            "init": "mod.cgytrus.slightlybettersplashes.SlightlyBetterSplashes"
-        },
+        "entrypoints": { },
         "depends": [
             {
                 "id": "quilt_loader",
