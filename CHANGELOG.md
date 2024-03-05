@@ -1,0 +1,2 @@
+- Switched to Fabric Loader
+- Downgraded target Minecraft version to 1.20

@@ -59,9 +59,12 @@ modrinth {
     projectId = 'slightlybettersplashes'
     versionNumber = '1.2.0'
     versionName = 'Slightly Better Splashes v1.2.0'
+    changelog = rootProject.file("CHANGELOG.md").text
     uploadFile = remapJar
+    additionalFiles = [sourcesJar]
     gameVersions = ['1.20', '1.20.1', '1.20.2', '1.20.3', '1.20.4']
     loaders = ['fabric', 'quilt']
+    detectLoaders = false
     syncBodyFrom = rootProject.file("README.md").text
 }
 tasks.modrinth.dependsOn(tasks.modrinthSyncBody)
