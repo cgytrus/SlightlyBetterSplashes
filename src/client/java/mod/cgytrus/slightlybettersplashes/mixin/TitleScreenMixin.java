@@ -1,7 +1,7 @@
 package mod.cgytrus.slightlybettersplashes.mixin;
 
 import mod.cgytrus.slightlybettersplashes.SlightlyBetterSplashes;
-import net.minecraft.client.gui.SplashTextRenderer;
+import net.minecraft.client.gui.screen.SplashTextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.text.OrderedText;
@@ -20,7 +20,7 @@ import java.util.List;
 public abstract class TitleScreenMixin extends Screen {
     @Shadow
     @Nullable
-    private SplashTextRenderer splashTextRenderer;
+    private SplashTextRenderer splashText;
 
     protected TitleScreenMixin(Text title) {
         super(title);
@@ -30,15 +30,15 @@ public abstract class TitleScreenMixin extends Screen {
     public void alwaysRefreshSplashText(CallbackInfo ci) {
         // setting splashTextRenderer to null in the beginning of init would cause the null check always fail,
         // causing the text to always be reset to a new splash every time you enter the title screen
-        splashTextRenderer = null;
+        splashText = null;
         SlightlyBetterSplashes.splashLines = SlightlyBetterSplashes.EmptySplashLines;
     }
 
     @Inject(method = "init", at = @At("TAIL"))
     public void createMultilineSplashText(CallbackInfo ci) {
-        if(splashTextRenderer == null)
+        if(splashText == null)
             return;
-        StringVisitable text = StringVisitable.plain(splashTextRenderer.splashText);
+        StringVisitable text = StringVisitable.plain(splashText.text);
         int textWidth = textRenderer.getWidth(text);
         // if our text is small enough just render it the same as vanilla
         if(textWidth <= 256) {

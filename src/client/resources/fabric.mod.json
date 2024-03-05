@@ -1,0 +1,27 @@
+{
+    "schemaVersion": 1,
+    "id": "slightlybettersplashes",
+    "version": "1.2.0",
+    "name": "Slightly Better Splashes",
+    "description": "Slightly improves the splash text in the main menu",
+    "authors": [
+        "ConfiG"
+    ],
+    "contact": {
+        "issues": "https://github.com/cgytrus/SlightlyBetterSplashes/issues",
+        "sources": "https://github.com/cgytrus/SlightlyBetterSplashes"
+    },
+    "license": "MIT",
+    "icon": "assets/slightlybettersplashes/icon.png",
+    "environment": "*",
+    "entrypoints": { },
+    "mixins": [
+        "slightlybettersplashes.mixins.json"
+    ],
+    "accessWidener": "slightlybettersplashes.accesswidener",
+    "depends": {
+        "fabricloader": ">=0.15.7",
+        "minecraft": "~1.20.1",
+        "java": ">=17"
+    }
+}
