@@ -1,6 +1,7 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
-    id 'maven-publish'
+    id "fabric-loom" version "1.5-SNAPSHOT"
+    id "maven-publish"
+    id "com.modrinth.minotaur" version "2.+"
 }
 
 version = project.mod_version
@@ -52,3 +53,15 @@ publishing {
         }
     }
 }
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = 'slightlybettersplashes'
+    versionNumber = '1.2.0'
+    versionName = 'Slightly Better Splashes v1.2.0'
+    uploadFile = remapJar
+    gameVersions = ['1.20', '1.20.1', '1.20.2', '1.20.3', '1.20.4']
+    loaders = ['fabric', 'quilt']
+    syncBodyFrom = rootProject.file("README.md").text
+}
+tasks.modrinth.dependsOn(tasks.modrinthSyncBody)
